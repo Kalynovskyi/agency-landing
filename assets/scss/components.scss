@@ -1,0 +1,171 @@
+@import "abstracts/abstracts";
+
+
+.logo {
+    font-family: "Playfair Display";
+}
+
+.subtitle {
+    font-weight: 300;
+    line-height: 2;
+}
+
+.button {
+    background-color: $accent-color;
+    color: #fff;
+    padding: $unit-measure-20px $unit-measure-40px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all, $transition-function, $transition-duration;
+
+    &:hover {
+        background-color: rgba($accent-color, 0.90);
+    }
+
+    &:focus,
+    &:active {
+        box-shadow: 0px 0px 0 3px rgba($accent-color, 0.50);
+    }
+}
+
+.heading {
+
+    .title {
+        font-weight: 800;
+        font-size: 3rem;
+        @include fluid-typo($unit-measure-35px, 6vw, 3rem );
+
+        &-thin {
+            font-weight: 300;
+        }
+    }
+
+    .subtitle {
+        font-weight: 300;
+        line-height: 2;
+        padding: $unit-measure-30px 0;
+        color: rgba($accent-color, 0.66);
+    }
+
+    @include sm-screen-down {
+        text-align: center;
+    }
+}
+
+.underscore {
+    position: relative;
+
+    &:after {
+        content: '';
+        position: absolute;
+        left: -0.1rem;
+        bottom: 20%;
+        height: 15%;
+        width: 95%;
+        background-color: $secondary-color;
+        z-index: -1;
+    }
+}
+
+.card { 
+    box-shadow: 0 0 5px 1px #f1f1f1;
+    border-radius: 10px;
+    background-color: #fff;
+    margin: 0 $unit-measure-20px;
+
+    &:first-child {
+        margin-left: 0;
+    }
+
+    &:last-of-type {
+        margin-right: 0;
+    }
+}
+
+.slider {
+    position: relative;
+
+    &-stage {
+        @include flex;
+        transition: all $transition-function $transition-duration;
+    }
+
+    &-nav {
+        @include flex;
+        font-size: 1.5rem;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+
+        &-button {
+            border: solid #000 1px;
+            border-radius: 50%;
+            width: 34px;
+            height: 34px;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 32px;
+            cursor: pointer;
+        }
+
+        &-button.prev {
+            margin-right: $unit-measure-20px;
+        }
+    }
+}
+
+.image-shapes {
+    position: relative;
+
+        &-filled {
+            top: -5%;
+            left: 15%;
+            z-index: 2;
+            position: absolute;
+            width: 55%;
+            height: 110%;
+            background-color: $secondary-color;
+            border-radius: 85% 15% 42% 58% / 48% 81% 19% 52%;
+
+            &::before {
+                content: '';
+                width: 70%;
+                height: 50%;
+                top: 0;
+                left: 40%;
+                position: absolute;
+                background-color: $secondary-color;
+                border-radius: 36% 64% 42% 58% / 48% 81% 19% 52% ;
+                transform: rotate(65deg);
+            }
+        }
+
+        &-dotted {
+            top: 10%;
+            left: 0;
+            z-index: 1;
+            position: absolute;
+            width: 60%;
+            height: 90%;
+            border-width: 2px;
+            border-style: dotted;
+            border-radius: 66% 34% 42% 58% / 48% 81% 19% 52% ;
+        }
+
+        .img {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-height: 100%;
+        }
+}
+
+.shadow-hover {
+    @include transition;
+
+    &:hover {
+        box-shadow: 0 0 0 3px $accent-color;
+    }
+}
